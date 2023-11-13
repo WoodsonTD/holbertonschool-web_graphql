@@ -11,6 +11,9 @@ import {
 import Project from './models/project';
 import Task from './models/task';
 
+const graphql = require('graphql');
+const{ GraphQLObjectType, GraphQLString, GraphQLInt}=graphql;
+
 // Define TaskType
 const TaskType = new GraphQLObjectType({
   name: 'Task',
@@ -111,4 +114,6 @@ const schema = new GraphQLSchema({
   mutation: MutationType,
 });
 
-export default schema;
+module.exports= new GraphQLSchema({
+  query: RootQuery
+});
